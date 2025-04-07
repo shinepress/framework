@@ -14,9 +14,9 @@
 	"require-dev": {
 		"phpstan/phpstan": "^2.1",
 		"phpstan/phpstan-strict-rules": "^2.0",
-		"php-cs-fixer/shim": "^3.75",
 		"phpunit/phpunit": "^7.5 || ^8.0 || ^9.0 || ^11.0 || ^12.0",
-		"yoast/phpunit-polyfills": "^4.0"
+		"yoast/phpunit-polyfills": "^4.0",
+		"laravel/pint": "^1.21"
 	},
 	"autoload": {
 		"psr-4": {
@@ -31,7 +31,7 @@
 	"scripts": {
 		"analyze": "phpstan analyse -v",
 		"test": "phpunit --do-not-cache-result",
-		"check": "php-cs-fixer check --allow-risky=yes --verbose",
-		"pretty": "php-cs-fixer fix --allow-risky=yes"
+		"lint": "pint --test",
+		"lint:fix": "pint"
 	}
 }

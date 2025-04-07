@@ -1,0 +1,9 @@
+{
+	"preset": "per",
+	"rules": {
+		"header_comment": {
+			"location": "after_open",
+			"header": "This file is part of ShinePress.\n\n(c) Shine United LLC\n\nFor the full copyright and license information, please view the LICENSE\nfile that was distributed with this source code.\n"
+		}
+	}
+}

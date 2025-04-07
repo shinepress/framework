@@ -7,6 +7,7 @@
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
+ *
  */
 
 declare(strict_types=1);
@@ -15,6 +16,7 @@ namespace ShinePress\Framework;
 
 use ReflectionProperty;
 
-interface PropertyAttributeInterface {
-	public function register(Module $module, ReflectionProperty $property): void;
+interface PropertyAttributeInterface
+{
+    public function register(Module $module, ReflectionProperty $property): void;
 }

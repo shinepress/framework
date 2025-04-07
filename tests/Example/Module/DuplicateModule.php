@@ -7,6 +7,7 @@
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
+ *
  */
 
 declare(strict_types=1);
@@ -22,19 +23,20 @@ use ShinePress\Framework\Tests\Example\Attribute\PropertyAttribute;
 #[ObjectAttribute]
 #[ObjectAttribute]
 #[ObjectAttribute]
-class DuplicateModule extends Module {
-	#[ConstantAttribute]
-	#[ConstantAttribute]
-	#[ConstantAttribute]
-	public const PUBLIC_CONSTANT = 'public';
+class DuplicateModule extends Module
+{
+    #[ConstantAttribute]
+    #[ConstantAttribute]
+    #[ConstantAttribute]
+    public const PUBLIC_CONSTANT = 'public';
 
-	#[PropertyAttribute]
-	#[PropertyAttribute]
-	#[PropertyAttribute]
-	public mixed $publicProperty;
+    #[PropertyAttribute]
+    #[PropertyAttribute]
+    #[PropertyAttribute]
+    public mixed $publicProperty;
 
-	#[MethodAttribute]
-	#[MethodAttribute]
-	#[MethodAttribute]
-	public function publicMethod(): void {}
+    #[MethodAttribute]
+    #[MethodAttribute]
+    #[MethodAttribute]
+    public function publicMethod(): void {}
 }
