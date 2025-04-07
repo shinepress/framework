@@ -7,7 +7,6 @@
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
- *
  */
 
 declare(strict_types=1);
@@ -16,7 +15,6 @@ namespace ShinePress\Framework;
 
 use ReflectionClassConstant;
 
-interface ConstantAttributeInterface
-{
-    public function register(Module $module, ReflectionClassConstant $constant): void;
+interface ConstantAttributeInterface {
+	public function register(Module $module, ReflectionClassConstant $constant): void;
 }

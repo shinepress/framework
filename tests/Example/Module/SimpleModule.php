@@ -7,7 +7,6 @@
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
- *
  */
 
 declare(strict_types=1);
@@ -21,33 +20,32 @@ use ShinePress\Framework\Tests\Example\Attribute\ObjectAttribute;
 use ShinePress\Framework\Tests\Example\Attribute\PropertyAttribute;
 
 #[ObjectAttribute]
-class SimpleModule extends Module
-{
-    #[ConstantAttribute]
-    public const PUBLIC_CONSTANT = 'public';
+class SimpleModule extends Module {
+	#[ConstantAttribute]
+	public const PUBLIC_CONSTANT = 'public';
 
-    #[ConstantAttribute]
-    protected const PROTECTED_CONSTANT = 'protected';
+	#[ConstantAttribute]
+	protected const PROTECTED_CONSTANT = 'protected';
 
-    #[ConstantAttribute]
-    private const PRIVATE_CONSTANT = 'private'; // @phpstan-ignore classConstant.unused
+	#[ConstantAttribute]
+	private const PRIVATE_CONSTANT = 'private'; // @phpstan-ignore classConstant.unused
 
-    #[PropertyAttribute]
-    public mixed $publicProperty;
+	#[PropertyAttribute]
+	public mixed $publicProperty;
 
-    #[PropertyAttribute]
-    protected mixed $protectedProperty;
+	#[PropertyAttribute]
+	protected mixed $protectedProperty;
 
-    #[PropertyAttribute]
-    private mixed $privateProperty; // @phpstan-ignore property.unused
+	#[PropertyAttribute]
+	private mixed $privateProperty; // @phpstan-ignore property.unused
 
-    #[MethodAttribute]
-    public function publicMethod(): void {}
+	#[MethodAttribute]
+	public function publicMethod(): void {}
 
-    #[MethodAttribute]
-    protected function protectedMethod(): void {}
+	#[MethodAttribute]
+	protected function protectedMethod(): void {}
 
-    // @phpstan-ignore method.unused
-    #[MethodAttribute]
-    private function privateMethod(): void {}
+	// @phpstan-ignore method.unused
+	#[MethodAttribute]
+	private function privateMethod(): void {}
 }
