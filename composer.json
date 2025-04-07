@@ -40,8 +40,8 @@
 		"analyze:static": "phpstan analyse -v",
 		"test": "@composer test:unit",
 		"test:unit": "phpunit --do-not-cache-result",
-		"syntax:check": "php-cs-fixer check --config=./vendor/shinepress/coding-standard/php-cs-fixer/shinepress-v1.php --using-cache=no --allow-risky=yes",
-		"syntax:fix": "php-cs-fixer fix --config=./vendor/shinepress/coding-standard/php-cs-fixer/shinepress-v1.php --using-cache=no --allow-risky=yes" 
+		"syntax:check": "php-cs-fixer check --config=./vendor/shinepress/coding-standard/php-cs-fixer/shinepress-v1.php --verbose --using-cache=no --allow-risky=yes",
+		"syntax:fix": "php-cs-fixer fix --config=./vendor/shinepress/coding-standard/php-cs-fixer/shinepress-v1.php --verbose --using-cache=no --allow-risky=yes" 
 	},
 	"scripts-descriptions": {
 		"analyze:static": "Perform static analysis (phpstan).",
