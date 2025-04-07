@@ -7,8 +7,9 @@ parameters:
 	exceptions:
 		checkedExceptionClasses:
 			- 'Throwable'
-		uncheckedExceptionClasses:
-			- 'PHPUnit\Exception'
+		uncheckedExceptionRegexes:
+			- '#^PHPUnit\\#'
+			- '#^SebastianBergmann\\#'
 		check:
 			missingCheckedExceptionInThrows: true
 			tooWideThrowType: true
