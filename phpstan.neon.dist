@@ -1,0 +1,16 @@
+parameters:
+	level: 9
+	paths:
+		- src
+		- tests
+	treatPhpDocTypesAsCertain: false
+	exceptions:
+		checkedExceptionClasses:
+			- 'Throwable'
+		uncheckedExceptionRegexes:
+			- '#^PHPUnit\\#'
+			- '#^SebastianBergmann\\#'
+		check:
+			missingCheckedExceptionInThrows: true
+			tooWideThrowType: true
+		implicitThrows: false
