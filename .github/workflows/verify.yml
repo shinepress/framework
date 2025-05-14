@@ -20,7 +20,7 @@ jobs:
       - name: Install PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.0'
+          php-version: '8.1'
           tools: composer:v2
       - name: Install Dependencies
         run: composer install --no-interaction
@@ -29,6 +29,9 @@ jobs:
 
   analyze:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php: ["8.1", "8.2", "8.3"]
     name: Static Analysis
     steps:
       - name: Checkout Code
@@ -36,7 +39,7 @@ jobs:
       - name: Install PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.0'
+          php-version: '8.1'
           tools: composer:v2
       - name: Install Dependencies
         run: composer install --no-interaction
@@ -47,7 +50,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php: ["8.0", "8.1", "8.2", "8.3"]
+        php: ["8.1", "8.2", "8.3"]
     name: "Unit Test (PHP v${{ matrix.php }})"
     steps:
       - name: Checkout Code
