@@ -1,0 +1,11 @@
+{
+	"name": "shinepress/framework",
+	"type": "library",
+	"license": "MIT",
+	"description": "Framework for building Wordpress plugins and themes.",
+	"keywords": [
+		"wordpress",
+		"plugin",
+		"theme"
+	]
+}
