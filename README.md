@@ -7,6 +7,7 @@
 [![Release Status](https://img.shields.io/github/actions/workflow/status/shinepress/framework/verify.yml?branch=release&label=release)](https://github.com/shinepress/framework/actions/workflows/verify.yml?query=branch%3Arelease)
 [![Develop Status](https://img.shields.io/github/actions/workflow/status/shinepress/framework/verify.yml?branch=develop&label=develop)](https://github.com/shinepress/framework/actions/workflows/verify.yml?query=branch%3Adevelop)
 
+
 ## Description
 
 A framework for creating Wordpress plugins and themes.
@@ -45,6 +46,7 @@ class MyModule extends Module {
 // register the module
 MyModule::register();
 ```
+
 
 ### Attributes
 
