@@ -8,6 +8,7 @@ on:
 jobs:
   dispatch:
     runs-on: ubuntu-latest
+    name: Dispatch Event
     steps:
       - name: Trigger Documentation Update
         uses: peter-evans/repository-dispatch@v3
