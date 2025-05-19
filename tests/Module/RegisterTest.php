@@ -14,6 +14,10 @@ declare(strict_types=1);
 namespace ShinePress\Framework\Tests\Module;
 
 use ShinePress\Framework\Module;
+use ShinePress\Framework\Tests\Example\Attribute\ConstantAttribute;
+use ShinePress\Framework\Tests\Example\Attribute\MethodAttribute;
+use ShinePress\Framework\Tests\Example\Attribute\ObjectAttribute;
+use ShinePress\Framework\Tests\Example\Attribute\PropertyAttribute;
 use ShinePress\Framework\Tests\Example\Module\AttributelessModule;
 use ShinePress\Framework\Tests\Example\Module\DuplicateModule;
 use ShinePress\Framework\Tests\Example\Module\SimpleModule;
@@ -94,6 +98,34 @@ class RegisterTest extends TestCase {
 
 		$module = SingleAttributeModule::instance();
 		Module::register($module); // nor should additional direct registration
+
+		$signature->assert($module);
+	}
+
+	public function testAnonymousModule(): void {
+		$signature = new Signature();
+		$signature->add('constant', 'TEST_CONSTANT');
+		$signature->add('property', 'testProperty');
+		$signature->add('method', 'testMethod');
+
+		$module = new
+		#[ObjectAttribute]
+		class extends Module {
+			#[ConstantAttribute]
+			public const TEST_CONSTANT = 'hello';
+
+			#[PropertyAttribute]
+			public string $testProperty;
+
+			#[MethodAttribute]
+			public function testMethod(): void {
+				// do nothing
+			}
+		};
+
+		$signature->add('object', $module::class);
+
+		$module::register();
 
 		$signature->assert($module);
 	}
