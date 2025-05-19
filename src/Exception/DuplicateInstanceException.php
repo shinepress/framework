@@ -11,10 +11,8 @@
 
 declare(strict_types=1);
 
-namespace ShinePress\Framework;
+namespace ShinePress\Framework\Exception;
 
-use ReflectionMethod;
+use LogicException;
 
-interface MethodAttributeInterface {
-	public function register(Module $module, ReflectionMethod $method): void;
-}
+class DuplicateInstanceException extends LogicException {}

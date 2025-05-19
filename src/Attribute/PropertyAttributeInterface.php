@@ -11,10 +11,11 @@
 
 declare(strict_types=1);
 
-namespace ShinePress\Framework;
+namespace ShinePress\Framework\Attribute;
 
-use ReflectionObject;
+use ReflectionProperty;
+use ShinePress\Framework\Module;
 
-interface ObjectAttributeInterface {
-	public function register(Module $module, ReflectionObject $object): void;
+interface PropertyAttributeInterface {
+	public function register(Module $module, ReflectionProperty $property): void;
 }

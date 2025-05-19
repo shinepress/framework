@@ -15,7 +15,7 @@ namespace ShinePress\Framework\Tests\Example\Attribute;
 
 use Attribute;
 use ReflectionClassConstant;
-use ShinePress\Framework\ConstantAttributeInterface;
+use ShinePress\Framework\Attribute\ConstantAttributeInterface;
 use ShinePress\Framework\Module;
 use ShinePress\Framework\Tests\Registration\Registry;
 

@@ -5,12 +5,12 @@ parameters:
 		- tests
 	treatPhpDocTypesAsCertain: false
 	exceptions:
-		checkedExceptionClasses:
-			- 'Throwable'
-		uncheckedExceptionRegexes:
-			- '#^PHPUnit\\#'
-			- '#^SebastianBergmann\\#'
 		check:
 			missingCheckedExceptionInThrows: true
 			tooWideThrowType: true
+		checkedExceptionClasses:
+			- 'RuntimeException'
+		uncheckedExceptionClasses:
+			- 'LogicException'
+			- 'PHPUnit\Framework\Exception'
 		implicitThrows: false

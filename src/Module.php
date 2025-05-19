@@ -15,6 +15,11 @@ namespace ShinePress\Framework;
 
 use ReflectionAttribute;
 use ReflectionObject;
+use ShinePress\Framework\Attribute\ConstantAttributeInterface;
+use ShinePress\Framework\Attribute\MethodAttributeInterface;
+use ShinePress\Framework\Attribute\ObjectAttributeInterface;
+use ShinePress\Framework\Attribute\PropertyAttributeInterface;
+use ShinePress\Framework\Exception\DuplicateInstanceException;
 
 abstract class Module {
 	/** @var array<class-string<self>, self> */
@@ -22,24 +27,45 @@ abstract class Module {
 
 	private bool $registered = false;
 
-	private function __construct() {
-		// run configuration hook
-		$this->configure();
+	/**
+	 * @throws DuplicateInstanceException
+	 */
+	public function __construct() {
+		if (isset(self::$instances[static::class])) {
+			throw new DuplicateInstanceException(vsprintf(
+				'An instance of "%s" has already been created.',
+				[
+					static::class,
+				],
+			));
+		}
+
+		self::$instances[static::class] = $this;
+
+		// run initialization hook
+		$this->initialize();
 	}
 
 	final public static function instance(): static {
 		$class = static::class;
 
-		if (!isset(self::$instances[$class]) || !is_a(self::$instances[$class], $class, false)) {
-			self::$instances[$class] = new $class();
+		if (isset(self::$instances[$class]) && is_a(self::$instances[$class], $class, false)) {
+			return self::$instances[$class];
 		}
 
-		return self::$instances[$class];
+		return new $class();
 	}
 
 	final public static function register(?self $module = null): void {
 		if (!$module instanceof self) {
 			$module = static::instance();
+		} elseif ($module !== self::$instances[$module::class]) {
+			throw new DuplicateInstanceException(vsprintf(
+				'Provided module is a duplicate instance of "%s".',
+				[
+					$module::class,
+				],
+			));
 		}
 
 		if ($module->registered) {
@@ -48,8 +74,8 @@ abstract class Module {
 		}
 		$module->registered = true;
 
-		// run initialization hook
-		$module->initialize();
+		// run prepare hook
+		$module->prepare();
 
 		$object = new ReflectionObject($module);
 
@@ -134,18 +160,18 @@ abstract class Module {
 		}
 
 		// run finalization hook
-		$module->finalize();
-	}
-
-	protected function configure(): void {
-		// runs during constructor
+		$module->cleanup();
 	}
 
 	protected function initialize(): void {
+		// runs during constructor
+	}
+
+	protected function prepare(): void {
 		// runs before registration
 	}
 
-	protected function finalize(): void {
+	protected function cleanup(): void {
 		// runs after registration
 	}
 }

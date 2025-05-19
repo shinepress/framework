@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace ShinePress\Framework\Tests\Module;
 
-use Error;
+use ShinePress\Framework\Exception\DuplicateInstanceException;
 use ShinePress\Framework\Module;
 use ShinePress\Framework\Tests\Example\Module\AttributelessModule;
 use ShinePress\Framework\Tests\TestCase;
@@ -36,8 +36,22 @@ class InstanceTest extends TestCase {
 	}
 
 	public function testDirectInstantiation(): void {
-		// direct instantiation is not allowed
-		self::expectException(Error::class);
-		$module = new AttributelessModule(); // @phpstan-ignore new.privateConstructor
+		// direct instantiation is allowed, but only the first time
+		$module = new AttributelessModule();
+
+		// should be an instance of Module
+		self::assertInstanceOf(Module::class, $module);
+
+		// should be an instance of requested module
+		self::assertInstanceOf(AttributelessModule::class, $module);
+
+		// instance method should return the created module
+		self::assertSame($module, AttributelessModule::instance());
+	}
+
+	public function testDuplicateInstantiation(): void {
+		new AttributelessModule();
+		self::expectException(DuplicateInstanceException::class);
+		new AttributelessModule();
 	}
 }
