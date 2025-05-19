@@ -30,15 +30,15 @@ use ShinePress\Framework\Module;
 
 class MyModule extends Module {
 	
-	protected function configure(): void {
+	protected function initialize(): void {
 		// runs during constructor
 	}
 
-	protected function initialize(): void {
+	protected function prepare(): void {
 		// runs before registration
 	}
 
-	protected function finalize(): void {
+	protected function cleanup(): void {
 		// runs after registration
 	}
 }
@@ -54,7 +54,7 @@ The primary purpose of the framework is to allow the configuration of a plugin/t
 
 ```php
 
-use ShinePress\Framework\MethodAttributeInterface;
+use ShinePress\Framework\Attribute\MethodAttributeInterface;
 use ShinePress\Framework\Module;
 use Attribute;
 use ReflectionMethod;
