@@ -52,6 +52,8 @@ MyModule::register();
 
 The primary purpose of the framework is to allow the configuration of a plugin/theme component using attributes.
 
+Note: this is an example only, for actions and filters the [shinepress/hooks](https://packagist.org/packages/shinepress/hooks/) package is recommended.
+
 ```php
 
 use ShinePress\Framework\Attribute\MethodAttributeInterface;
@@ -89,4 +91,3 @@ class MyModule extends Module {
 
 MyModule::register();
 ```
-
