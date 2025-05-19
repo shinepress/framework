@@ -15,8 +15,8 @@ namespace ShinePress\Framework\Tests\Example\Attribute;
 
 use Attribute;
 use ReflectionObject;
+use ShinePress\Framework\Attribute\ObjectAttributeInterface;
 use ShinePress\Framework\Module;
-use ShinePress\Framework\ObjectAttributeInterface;
 use ShinePress\Framework\Tests\Registration\Registry;
 
 #[Attribute(Attribute::TARGET_CLASS | Attribute::IS_REPEATABLE)]

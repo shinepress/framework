@@ -11,9 +11,10 @@
 
 declare(strict_types=1);
 
-namespace ShinePress\Framework;
+namespace ShinePress\Framework\Attribute;
 
 use ReflectionClassConstant;
+use ShinePress\Framework\Module;
 
 interface ConstantAttributeInterface {
 	public function register(Module $module, ReflectionClassConstant $constant): void;

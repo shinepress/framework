@@ -15,7 +15,7 @@ namespace ShinePress\Framework\Tests\Example\Attribute;
 
 use Attribute;
 use ReflectionMethod;
-use ShinePress\Framework\MethodAttributeInterface;
+use ShinePress\Framework\Attribute\MethodAttributeInterface;
 use ShinePress\Framework\Module;
 use ShinePress\Framework\Tests\Registration\Registry;
 

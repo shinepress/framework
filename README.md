@@ -30,15 +30,15 @@ use ShinePress\Framework\Module;
 
 class MyModule extends Module {
 	
-	protected function configure(): void {
+	protected function initialize(): void {
 		// runs during constructor
 	}
 
-	protected function initialize(): void {
+	protected function prepare(): void {
 		// runs before registration
 	}
 
-	protected function finalize(): void {
+	protected function cleanup(): void {
 		// runs after registration
 	}
 }
@@ -52,9 +52,11 @@ MyModule::register();
 
 The primary purpose of the framework is to allow the configuration of a plugin/theme component using attributes.
 
+Note: this is an example only, for actions and filters the [shinepress/hooks](https://packagist.org/packages/shinepress/hooks/) package is recommended.
+
 ```php
 
-use ShinePress\Framework\MethodAttributeInterface;
+use ShinePress\Framework\Attribute\MethodAttributeInterface;
 use ShinePress\Framework\Module;
 use Attribute;
 use ReflectionMethod;
@@ -89,4 +91,3 @@ class MyModule extends Module {
 
 MyModule::register();
 ```
-
