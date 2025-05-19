@@ -11,9 +11,10 @@
 
 declare(strict_types=1);
 
-namespace ShinePress\Framework;
+namespace ShinePress\Framework\Attribute;
 
 use ReflectionMethod;
+use ShinePress\Framework\Module;
 
 interface MethodAttributeInterface {
 	public function register(Module $module, ReflectionMethod $method): void;
